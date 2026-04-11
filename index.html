@@ -86,6 +86,33 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15em;
+  }
+
+  .bracket {
+    display: inline-block;
+    width: 0.32em;
+    height: 0.72em;
+    border-style: solid;
+    border-width: 3.5px;
+    border-radius: 3px;
+    -webkit-text-fill-color: transparent;
+    flex-shrink: 0;
+  }
+
+  .bracket.green {
+    border-color: var(--green);
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .bracket.red {
+    border-color: var(--red);
+    border-left: none;
+    border-radius: 0 3px 3px 0;
   }
 
   .hero .tagline {
@@ -297,7 +324,7 @@
 <section class="hero">
   <div class="hero-content">
     <span class="logo-icon">📈</span>
-    <h1>ScrollySwipe</h1>
+    <h1><span class="bracket green">[</span>ScrollySwipe<span class="bracket red">]</span></h1>
     <p class="tagline">Real-time <strong>prediction markets</strong> on your phone. Swipe to bet. Prove you know what's going to happen.</p>
     <div class="cta-group">
       <span class="btn btn-primary" style="opacity: 0.6; cursor: default;">
