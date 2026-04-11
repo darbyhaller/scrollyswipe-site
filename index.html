@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScrollySwipe — Predict Crypto. Swipe to Bet.</title>
+<meta name="description" content="Real-time crypto prediction markets on your phone. Swipe to bet, compete with friends, and prove you know where the market is headed.">
+<meta property="og:title" content="ScrollySwipe">
+<meta property="og:description" content="Real-time crypto prediction markets on your phone. Swipe to bet.">
+<meta property="og:type" content="website">
+<meta name="apple-itunes-app" content="app-id=6762064324">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root {
+    --bg: #0a0a0a;
+    --card: #151515;
+    --card-border: #222;
+    --text: #f0f0f0;
+    --text-muted: #888;
+    --accent: #f5a623;
+    --green: #34d399;
+    --red: #f87171;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(245,166,35,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(52,211,153,0.10) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(96,165,250,0.05) 0%, transparent 60%),
+      var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+  }
+
+  .logo-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #f5a623 0%, #34d399 50%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .hero .tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+  }
+
+  .hero .tagline strong {
+    color: var(--text);
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--card-border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text-muted);
+    box-shadow: 0 8px 24px rgba(255,255,255,0.05);
+  }
+
+  .btn-icon {
+    font-size: 1.2rem;
+  }
+
+  /* ── Features ── */
+  .features {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+  }
+
+  .features h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 700px) {
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: transform 0.2s;
+  }
+
+  .feature-card:hover { transform: translateY(-3px); }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .feature-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* ── How it works ── */
+  .how-it-works {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .how-it-works h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+
+  .step-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 500px) {
+    .step-row { flex-direction: column; align-items: center; text-align: center; }
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #000;
+    font-weight: 900;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .step-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ── Bottom CTA ── */
+  .bottom-cta {
+    text-align: center;
+    padding: 5rem 1.5rem 6rem;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(245,166,35,0.08) 0%, transparent 60%),
+      var(--bg);
+  }
+
+  .bottom-cta h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .bottom-cta p {
+    color: var(--text-muted);
+    max-width: 440px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #555;
+    font-size: 0.8rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="logo-icon">📈</span>
+    <h1>ScrollySwipe</h1>
+    <p class="tagline">Real-time <strong>crypto prediction markets</strong> on your phone. Swipe to bet. Prove you know where the market is headed.</p>
+    <div class="cta-group">
+      <a href="https://testflight.apple.com/join/YOUR_LINK" class="btn btn-primary">
+        <span class="btn-icon"></span> Download on TestFlight
+      </a>
+      <a href="guide.html" class="btn btn-secondary">
+        How to Play
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FEATURES ════════════ -->
+<section class="features">
+  <h2>Why You'll Love It</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span class="feature-icon">👆</span>
+      <h3>Swipe to Bet</h3>
+      <p>No forms, no menus. Swipe left for YES, right for NO. It's as fast as scrolling TikTok.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <h3>5-Minute Markets</h3>
+      <p>Markets as short as 5 minutes. Get results fast, bet again, and keep the action going.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🪙</span>
+      <h3>50+ Crypto Coins</h3>
+      <p>BTC, ETH, SOL, DOGE, and dozens more. Predict real prices from Coinbase in real time.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <h3>Live Price Discovery</h3>
+      <p>Every bet moves the market. Prices reflect what the crowd actually believes — find the edge.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💸</span>
+      <h3>Free to Play</h3>
+      <p>Start with $100 in play money and earn $10 every 30 seconds. No real money, no risk.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔔</span>
+      <h3>Instant Results</h3>
+      <p>Get push notifications the moment your bet resolves. See your payout in real time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ HOW IT WORKS ════════════ -->
+<section class="how-it-works">
+  <h2>How It Works</h2>
+
+  <div class="step-row">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h3>Open the app and scroll</h3>
+      <p>Each full-screen card shows a crypto prediction — like "BTC over $95,000?" with a countdown timer and live prices.</p>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h3>Swipe to place your bet</h3>
+      <p>Swipe left for YES, right for NO. Or tap the price buttons. Pick your bet size in the HUD. Every bet is instant.</p>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h3>Watch the market move</h3>
+      <p>Prices update in real time as other players bet. You can sell your position early by swiping the opposite direction to lock in profit.</p>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h3>Get paid when the timer runs out</h3>
+      <p>The real crypto price is checked. If you were right, your shares pay out at $1 each. A new market instantly takes its place.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BOTTOM CTA ════════════ -->
+<section class="bottom-cta">
+  <h2>Ready to start predicting?</h2>
+  <p>Join the game and see if you can beat the market. No signup required — just open and swipe.</p>
+  <div class="cta-group">
+    <a href="https://testflight.apple.com/join/YOUR_LINK" class="btn btn-primary">
+      <span class="btn-icon"></span> Get the App
+    </a>
+    <a href="guide.html" class="btn btn-secondary">
+      Read the Full Guide
+    </a>
+  </div>
+</section>
+
+<footer>
+  ScrollySwipe &middot; <a href="guide.html">How to Play</a>
+</footer>
+
+</body>
+</html>
