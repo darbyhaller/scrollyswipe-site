@@ -82,10 +82,50 @@
     font-size: clamp(3rem, 7vw, 4.5rem);
     font-weight: 900;
     letter-spacing: -0.04em;
-    background: linear-gradient(135deg, #f5a623 0%, #34d399 50%, #60a5fa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1em;
+  }
+
+  .chevron-left, .chevron-right {
+    height: 0.75em;
+    width: auto;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s;
+  }
+
+  .chevron-left:hover {
+    transform: scale(1.15);
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(34,197,94,0.6));
+  }
+
+  .chevron-left:hover path { opacity: 1; }
+
+  .chevron-right:hover {
+    transform: scale(1.15);
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(239,68,68,0.6));
+  }
+
+  .chevron-right:hover path { opacity: 1; }
+
+  .screen-flash {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
+  }
+
+  .screen-flash.active {
+    opacity: 1;
+    transition: opacity 0.05s ease-in;
   }
 
   .hero .tagline {
@@ -297,7 +337,7 @@
 <section class="hero">
   <div class="hero-content">
     <span class="logo-icon">📈</span>
-    <h1>ScrollySwipe</h1>
+    <h1><svg class="chevron-left" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 20L18 36" stroke="#22c55e" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg>ScrollySwipe<svg class="chevron-right" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M6 4L18 20L6 36" stroke="#ef4444" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg></h1>
     <p class="tagline">Real-time <strong>prediction markets</strong> on your phone. Swipe to bet. Prove you know what's going to happen.</p>
     <div class="cta-group">
       <span class="btn btn-primary" style="opacity: 0.6; cursor: default;">
@@ -401,6 +441,25 @@
 <footer>
   ScrollySwipe &middot; <a href="guide.html">How to Play</a>
 </footer>
+
+<div id="flash" class="screen-flash"></div>
+
+<script>
+(function() {
+  var flash = document.getElementById('flash');
+  function doFlash(color) {
+    flash.style.background = color;
+    flash.classList.add('active');
+    setTimeout(function() { flash.classList.remove('active'); }, 120);
+  }
+  document.querySelector('.chevron-left').addEventListener('click', function() {
+    doFlash('rgba(34,197,94,0.35)');
+  });
+  document.querySelector('.chevron-right').addEventListener('click', function() {
+    doFlash('rgba(239,68,68,0.35)');
+  });
+})();
+</script>
 
 </body>
 </html>
