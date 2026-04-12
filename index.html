@@ -102,14 +102,14 @@
 
   .chevron-left:hover {
     transform: scale(1.15);
-    filter: brightness(1.4) drop-shadow(0 0 12px rgba(34,197,94,0.6));
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(239,68,68,0.6));
   }
 
   .chevron-left:hover path { opacity: 1; }
 
   .chevron-right:hover {
     transform: scale(1.15);
-    filter: brightness(1.4) drop-shadow(0 0 12px rgba(239,68,68,0.6));
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(34,197,94,0.6));
   }
 
   .chevron-right:hover path { opacity: 1; }
@@ -337,7 +337,7 @@
 <section class="hero">
   <div class="hero-content">
     <span class="logo-icon">📈</span>
-    <h1><svg class="chevron-left" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 20L18 36" stroke="#22c55e" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg>ScrollySwipe<svg class="chevron-right" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M6 4L18 20L6 36" stroke="#ef4444" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg></h1>
+    <h1><svg class="chevron-left" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 20L18 36" stroke="#ef4444" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg>ScrollySwipe<svg class="chevron-right" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M6 4L18 20L6 36" stroke="#22c55e" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg></h1>
     <p class="tagline">Real-time <strong>prediction markets</strong> on your phone. Swipe to bet. Prove you know what's going to happen.</p>
     <div class="cta-group">
       <span class="btn btn-primary" style="opacity: 0.6; cursor: default;">
@@ -357,7 +357,7 @@
     <div class="feature-card">
       <span class="feature-icon">👆</span>
       <h3>Swipe to Bet</h3>
-      <p>No forms, no menus. Swipe left for YES, right for NO. It's as fast as scrolling TikTok.</p>
+      <p>No forms, no menus. Swipe right for YES, left for NO. It's as fast as scrolling TikTok.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⚡</span>
@@ -403,7 +403,7 @@
     <div class="step-number">2</div>
     <div class="step-content">
       <h3>Swipe to place your bet</h3>
-      <p>Swipe left for YES, right for NO. Or tap the price buttons. Pick your bet size in the HUD. Every bet is instant.</p>
+      <p>Swipe right for YES, left for NO. Or tap the price buttons. Pick your bet size in the HUD. Every bet is instant.</p>
     </div>
   </div>
 
@@ -453,10 +453,10 @@
     setTimeout(function() { flash.classList.remove('active'); }, 120);
   }
   document.querySelector('.chevron-left').addEventListener('click', function() {
-    doFlash('rgba(34,197,94,0.35)');
+    doFlash('rgba(239,68,68,0.35)');
   });
   document.querySelector('.chevron-right').addEventListener('click', function() {
-    doFlash('rgba(239,68,68,0.35)');
+    doFlash('rgba(34,197,94,0.35)');
   });
 })();
 </script>

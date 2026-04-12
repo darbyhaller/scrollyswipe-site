@@ -82,14 +82,14 @@
 
   .chevron-left:hover {
     transform: scale(1.15);
-    filter: brightness(1.4) drop-shadow(0 0 12px rgba(34,197,94,0.6));
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(239,68,68,0.6));
   }
 
   .chevron-left:hover path { opacity: 1; }
 
   .chevron-right:hover {
     transform: scale(1.15);
-    filter: brightness(1.4) drop-shadow(0 0 12px rgba(239,68,68,0.6));
+    filter: brightness(1.4) drop-shadow(0 0 12px rgba(34,197,94,0.6));
   }
 
   .chevron-right:hover path { opacity: 1; }
@@ -569,7 +569,7 @@
 <!-- ════════════ HERO ════════════ -->
 <div class="hero">
   <div class="hero-icon">📈</div>
-  <h1><svg class="chevron-left" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 20L18 36" stroke="#22c55e" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg>ScrollySwipe<svg class="chevron-right" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M6 4L18 20L6 36" stroke="#ef4444" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg></h1>
+  <h1><svg class="chevron-left" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L6 20L18 36" stroke="#ef4444" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg>ScrollySwipe<svg class="chevron-right" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M6 4L18 20L6 36" stroke="#22c55e" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></svg></h1>
   <p>Make predictions. Swipe to bet. Compete in real-time markets — all from your phone.</p>
   <a href="#basics" class="hero-cta">Learn to Play ↓</a>
 </div>
@@ -619,8 +619,8 @@
         <div class="mock-question">Will it happen?</div>
         <div class="mock-subtitle">Expires in 4:32</div>
         <div class="mock-buttons">
-          <div class="mock-btn yes-btn">72¢</div>
           <div class="mock-btn no-btn">28¢</div>
+          <div class="mock-btn yes-btn">72¢</div>
         </div>
         <div class="mock-timer">4:32</div>
       </div>
@@ -634,24 +634,24 @@
 
     <div class="gesture-grid">
       <div class="gesture-card yes">
-        <span class="gesture-icon">👈</span>
-        <div class="label green">Swipe Left — YES</div>
+        <span class="gesture-icon">👉</span>
+        <div class="label green">Swipe Right — YES</div>
         <div class="desc">Swipe toward the green YES side to place a YES bet. A green flash confirms it.</div>
       </div>
       <div class="gesture-card no">
-        <span class="gesture-icon">👉</span>
-        <div class="label red">Swipe Right — NO</div>
+        <span class="gesture-icon">👈</span>
+        <div class="label red">Swipe Left — NO</div>
         <div class="desc">Swipe toward the red NO side to place a NO bet. A red flash confirms it.</div>
       </div>
       <div class="gesture-card yes">
         <span class="gesture-icon">👆</span>
         <div class="label green">Tap YES Button</div>
-        <div class="desc">Tap the green price button or the left chevron to bet YES.</div>
+        <div class="desc">Tap the green price button or the right chevron to bet YES.</div>
       </div>
       <div class="gesture-card no">
         <span class="gesture-icon">👇</span>
         <div class="label red">Tap NO Button</div>
-        <div class="desc">Tap the red price button or the right chevron to bet NO.</div>
+        <div class="desc">Tap the red price button or the left chevron to bet NO.</div>
       </div>
     </div>
 
@@ -865,8 +865,8 @@
     <div class="card">
       <h3>⌨️ Gesture Cheat Sheet</h3>
       <ul>
-        <li><strong>Swipe left</strong> → Bet YES</li>
-        <li><strong>Swipe right</strong> → Bet NO</li>
+        <li><strong>Swipe right</strong> → Bet YES</li>
+        <li><strong>Swipe left</strong> → Bet NO</li>
         <li><strong>Swipe up/down</strong> → Next / previous market</li>
         <li><strong>Tap YES price</strong> → Bet YES</li>
         <li><strong>Tap NO price</strong> → Bet NO</li>
@@ -903,10 +903,10 @@
     setTimeout(function() { flash.classList.remove('active'); }, 120);
   }
   document.querySelector('.chevron-left').addEventListener('click', function() {
-    doFlash('rgba(34,197,94,0.35)');
+    doFlash('rgba(239,68,68,0.35)');
   });
   document.querySelector('.chevron-right').addEventListener('click', function() {
-    doFlash('rgba(239,68,68,0.35)');
+    doFlash('rgba(34,197,94,0.35)');
   });
 })();
 </script>
