@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScrollySwipe — Support</title>
+<meta name="description" content="Get help with ScrollySwipe. Contact support, report bugs, ask questions.">
+<meta name="apple-itunes-app" content="app-id=6762064324">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  :root {
+    --bg: #0a0a0a;
+    --card: #151515;
+    --card-border: #222;
+    --text: #f0f0f0;
+    --text-muted: #888;
+    --accent: #f5a623;
+    --green: #34d399;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page {
+    flex: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+  }
+
+  .nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav a:hover { color: var(--text); }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card p {
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.6rem 1rem;
+    background: rgba(245, 166, 35, 0.08);
+    border: 1px solid rgba(245, 166, 35, 0.25);
+    border-radius: 10px;
+    transition: all 0.15s;
+  }
+
+  .email-link:hover {
+    background: rgba(245, 166, 35, 0.15);
+    border-color: rgba(245, 166, 35, 0.4);
+  }
+
+  details {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  details summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  details summary::after {
+    content: '+';
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+
+  details[open] summary::after { transform: rotate(45deg); }
+
+  details summary::-webkit-details-marker { display: none; }
+
+  details p {
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  .footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a href="./">← ScrollySwipe</a>
+  </nav>
+
+  <h1>Support</h1>
+  <p class="subtitle">Need help? Have feedback? We're here.</p>
+
+  <div class="card">
+    <h2>📧 Contact us</h2>
+    <p>For bug reports, feature requests, account issues, or anything else — email us and we'll get back to you.</p>
+    <a class="email-link" href="mailto:darbyhaller@gmail.com">darbyhaller@gmail.com</a>
+  </div>
+
+  <h2 style="font-size: 1.25rem; margin: 2.5rem 0 1rem;">Frequently asked</h2>
+
+  <details>
+    <summary>Is this real money?</summary>
+    <p>No. ScrollySwipe is a play-money prediction game. Your balance is virtual — you can't deposit, withdraw, or cash out. It's just for fun and bragging rights.</p>
+  </details>
+
+  <details>
+    <summary>How do I get more play money?</summary>
+    <p>You earn an automatic salary every hour just for showing up. Win predictions to grow your portfolio faster.</p>
+  </details>
+
+  <details>
+    <summary>How are markets resolved?</summary>
+    <p>Crypto markets resolve based on the live Coinbase price at the moment the timer hits zero. If the price is above the strike, OVER wins; otherwise UNDER wins.</p>
+  </details>
+
+  <details>
+    <summary>How do I delete my account?</summary>
+    <p>Email <a href="mailto:darbyhaller@gmail.com" style="color: var(--accent);">darbyhaller@gmail.com</a> from the address tied to your account and we'll wipe it within 7 days.</p>
+  </details>
+
+  <details>
+    <summary>I found a bug / something looks wrong.</summary>
+    <p>Please tell us! Email <a href="mailto:darbyhaller@gmail.com" style="color: var(--accent);">darbyhaller@gmail.com</a> with a screenshot and what you were doing when it happened.</p>
+  </details>
+</main>
+
+<footer class="footer">
+  <a href="./">scrollyswipe.app</a>
+</footer>
+</body>
+</html>
